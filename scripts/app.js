@@ -1,4 +1,5 @@
-fetch("https://api.canarado.xyz/lyrics/645312624").then((res) => {
+function getSongs (songName) {
+    fetch(`https://api.canarado.xyz/lyrics/${songName}`).then((res) => {
     res.json().then((final) => {
         const resultDiv = document.querySelector(".result");
 
@@ -19,7 +20,15 @@ fetch("https://api.canarado.xyz/lyrics/645312624").then((res) => {
                         </h1>
                         <p>Artist: ${song.artist}</p>
                     </div>`
-            })
-        }
+                })
+            }
+        })
     })
+}
+
+document.querySelector("form").addEventListener("submit", (event) => {
+    event.preventDefault();
+    const songName = document.querySelector("input").value.trim();
+
+    getSongs(songName)
 })
