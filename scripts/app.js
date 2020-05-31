@@ -21,7 +21,7 @@ function getSongs (songName) {
             let i = 1;
             final.content.forEach((song) => {
                 resultDiv.innerHTML += `
-                    <div class="box response textCenter" id="song${i}">
+                    <div class="box response" id="song${i}">
                         <h1 class="title">
                             ${song.title}
                         </h1>
@@ -47,19 +47,33 @@ function addEveListener() {
         eachResultBox.addEventListener("click", function() {
             this.style.color = "red";
             const id = Number(this.id.replace("song", ""))
-            console.log(id)
-            addLyrics(id, this)
+            if (!alreadyAdded(this)) {
+                addLyrics(id, this)
+            }
         })
     })
 }
 
 let addLyrics = (id, instance) =>  {
     lyrics = globalResponse.content[id - 1].lyrics
-    lyrics = lyrics.replace("\n", "<br>")
+    lyrics = lyrics.replace("\n", "<br><br>")
     instance.innerHTML += `
     <div class="box">
-        <p>
-            ${lyrics}
-        </p>
+        <pre class="content">${lyrics}</pre>
     </div>`
+    instance.classList.add("done");
+    removeItems();
+}
+
+let alreadyAdded = (instance) => {
+    return instance.classList.value.includes("done")
+}
+
+function removeItems() {
+    const allItems = document.querySelectorAll(".response")
+    allItems.forEach((each) => {
+        if (!alreadyAdded(each)) {
+            each.style.display = "none"
+        }
+    })
 }
