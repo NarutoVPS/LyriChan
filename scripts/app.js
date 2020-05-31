@@ -14,6 +14,7 @@ function getSongs (songName) {
                     <p>${final.status.message}</p>
                 </div>`
         } else {
+            resultDiv.innerHTML = "";
             final.content.forEach((song) => {
                 resultDiv.innerHTML += `
                     <div class="box textCenter">
