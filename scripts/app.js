@@ -1,4 +1,6 @@
 function getSongs (songName) {
+    songName = songName.replace(" ", "_");
+
     fetch(`https://api.canarado.xyz/lyrics/${songName}`).then((res) => {
     res.json().then((final) => {
         const resultDiv = document.querySelector(".result");
