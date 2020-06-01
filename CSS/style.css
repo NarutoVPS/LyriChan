@@ -48,7 +48,9 @@ input::placeholder {
 }
 
 hr {
-    background-color: #6c757d;
+    margin-left: 10px;
+    margin-right: 10px;
+    background-color: #41414e;
 }
 
 .creator {
