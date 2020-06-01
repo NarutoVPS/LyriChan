@@ -5,6 +5,7 @@ function getSongs (songName) {
 
     fetch(`https://api.canarado.xyz/lyrics/${songName}`).then((res) => {
     res.json().then((final) => {
+        document.querySelector("button").classList.remove("is-loading")
         const resultDiv = document.querySelector(".result");
 
         if (final.status.failed) {
@@ -25,7 +26,7 @@ function getSongs (songName) {
                         <h1 class="title">
                             ${song.title}
                         </h1>
-                        <p>Artist: ${song.artist}</p>
+                        <p class="block">Artist: ${song.artist}</p>
                     </div>`
                     i++;
                 })
@@ -39,6 +40,7 @@ document.querySelector("form").addEventListener("submit", (event) => {
     event.preventDefault();
     const songName = document.querySelector("input").value.trim();
 
+    document.querySelector("button").classList.add("is-loading")
     getSongs(songName)
 })
 
@@ -72,8 +74,17 @@ let alreadyAdded = (instance) => {
 function removeItems() {
     const allItems = document.querySelectorAll(".response")
     allItems.forEach((each) => {
-        if (!alreadyAdded(each)) {
-            each.style.display = "none"
-        }
+        each.style.transform = "translateX(100vw)"
     })
+
+    setTimeout(() => {
+        console.log("here")
+        allItems.forEach((each) => {
+            if (alreadyAdded(each)) {
+                each.style.transform = "none";
+            } else {
+                each.remove()
+            }
+        })
+    }, 1000)
 }
