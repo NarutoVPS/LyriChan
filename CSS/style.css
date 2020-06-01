@@ -39,7 +39,7 @@ input::placeholder {
 }
 
 #version {
-    color: red;
+    color: #ffdd57;
 }
 
 .response {

@@ -51,7 +51,7 @@ function getSongs (songName) {
 function addEveListener() {
     document.querySelectorAll(".response").forEach((eachResultBox) => {
         eachResultBox.addEventListener("click", function() {
-            this.style.color = "red";
+            this.style.color = "#ffdd57";
             const id = Number(this.id.replace("song", ""))
             if (!alreadyAdded(this)) {
                 addLyrics(id, this)
