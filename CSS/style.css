@@ -38,10 +38,6 @@ input::placeholder {
     color: #6c757d;
 }
 
-.creator {
-    margin-bottom: 30px;
-}
-
 #version {
     color: red;
 }
@@ -49,4 +45,13 @@ input::placeholder {
 .response {
     margin: 0 10px;
     background-color: #8EA8C3;
+}
+
+hr {
+    background-color: #6c757d;
+}
+
+.creator {
+    color: #161625;
+    margin-bottom: 30px;
 }
