@@ -2,12 +2,26 @@
     transition: all 1s ease;
 }
 
+html {
+    background-color: #406E8E;
+    color: #6c757d;
+}
+
 .textCenter {
     text-align: center;
 }
 
 .userInput {
     margin: 0 5% !important;
+}
+
+input {
+    background-color: #161625 !important;
+    color: #6c757d !important;
+}
+
+input::placeholder {
+    color: #6c757d !important;
 }
 
 .heading {
@@ -17,6 +31,11 @@
 
 .result {
     min-height: 60vh;
+}
+
+.lyrics, pre {
+    background-color: #161625;
+    color: #6c757d;
 }
 
 .creator {
@@ -29,4 +48,5 @@
 
 .response {
     margin: 0 10px;
+    background-color: #8EA8C3;
 }
