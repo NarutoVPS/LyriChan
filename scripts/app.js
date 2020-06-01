@@ -1,5 +1,17 @@
 let globalResponse = {};
 
+document.querySelector("form").addEventListener("submit", (event) => {
+    event.preventDefault();
+    const songName = document.querySelector("input").value.trim();
+
+    if (!songName) {
+        alert("Please enter a song name.")
+    } else {
+        document.querySelector("button").classList.add("is-loading")
+        getSongs(songName)
+    }
+})
+
 function getSongs (songName) {
     songName = songName.replace(" ", "_");
 
@@ -36,18 +48,6 @@ function getSongs (songName) {
     })
 }
 
-document.querySelector("form").addEventListener("submit", (event) => {
-    event.preventDefault();
-    const songName = document.querySelector("input").value.trim();
-
-    if (!songName) {
-        alert("Please enter a song name.")
-    } else {
-        document.querySelector("button").classList.add("is-loading")
-        getSongs(songName)
-    }
-})
-
 function addEveListener() {
     document.querySelectorAll(".response").forEach((eachResultBox) => {
         eachResultBox.addEventListener("click", function() {
@@ -60,6 +60,10 @@ function addEveListener() {
     })
 }
 
+let alreadyAdded = (instance) => {
+    return instance.classList.value.includes("done")
+}
+
 let addLyrics = (id, instance) =>  {
     lyrics = globalResponse.content[id - 1].lyrics
     lyrics = lyrics.replace("\n", "<br><br>")
@@ -69,10 +73,6 @@ let addLyrics = (id, instance) =>  {
     </div>`
     instance.classList.add("done");
     removeItems();
-}
-
-let alreadyAdded = (instance) => {
-    return instance.classList.value.includes("done")
 }
 
 function removeItems() {
