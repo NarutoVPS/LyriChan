@@ -68,7 +68,7 @@ let addLyrics = (id, instance) =>  {
     lyrics = globalResponse.content[id - 1].lyrics
     lyrics = lyrics.replace("\n", "<br><br>")
     instance.innerHTML += `
-    <div class="box">
+    <div class="box lyrics">
         <pre class="content">${lyrics}</pre>
     </div>`
     instance.classList.add("done");
