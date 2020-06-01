@@ -40,8 +40,12 @@ document.querySelector("form").addEventListener("submit", (event) => {
     event.preventDefault();
     const songName = document.querySelector("input").value.trim();
 
-    document.querySelector("button").classList.add("is-loading")
-    getSongs(songName)
+    if (!songName) {
+        alert("Please enter a song name.")
+    } else {
+        document.querySelector("button").classList.add("is-loading")
+        getSongs(songName)
+    }
 })
 
 function addEveListener() {
