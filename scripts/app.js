@@ -25,7 +25,7 @@ function getSongs (songName) {
 
         if (final.status.failed) {
             resultDiv.innerHTML = `
-                <div class="box textCenter">
+                <div class="box response textCenter">
                     <h1 class="title">
                         Error : ${final.status.code}
                     </h1>
