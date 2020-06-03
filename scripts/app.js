@@ -1,5 +1,7 @@
+// this identifier stores the parsed fetch response available globally
 let globalResponse = {};
 
+// adds a submit event listener that grabs the text submitted by user and calls geSongs() with that text argument
 document.querySelector("form").addEventListener("submit", (event) => {
     event.preventDefault();
     const songName = document.querySelector("input").value.trim();
@@ -12,6 +14,7 @@ document.querySelector("form").addEventListener("submit", (event) => {
     }
 })
 
+// fetches song details from the api and displays the result/error received. 
 function getSongs (songName) {
     songName = songName.replace(" ", "_");
 
@@ -48,6 +51,7 @@ function getSongs (songName) {
     })
 }
 
+// adds click event listener to all results. When clicked on any result box, addLyrics() is called for that result box
 function addEveListener() {
     document.querySelectorAll(".response").forEach((eachResultBox) => {
         eachResultBox.addEventListener("click", function() {
@@ -60,10 +64,12 @@ function addEveListener() {
     })
 }
 
+// Checks if lyrics has been already added
 let alreadyAdded = (instance) => {
     return instance.classList.value.includes("done")
 }
 
+// adds/displays lyrics and then calls removeItems()
 let addLyrics = (id, instance) =>  {
     lyrics = globalResponse.content[id - 1].lyrics
     lyrics = lyrics.replace("\n", "<br><br>")
@@ -75,6 +81,7 @@ let addLyrics = (id, instance) =>  {
     removeItems();
 }
 
+// removes all the results and after 1s displays the clicked result
 function removeItems() {
     const allItems = document.querySelectorAll(".response")
     allItems.forEach((each) => {
@@ -82,7 +89,6 @@ function removeItems() {
     })
 
     setTimeout(() => {
-        console.log("here")
         allItems.forEach((each) => {
             if (alreadyAdded(each)) {
                 each.style.transform = "none";
