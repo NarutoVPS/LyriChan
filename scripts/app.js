@@ -26,7 +26,7 @@ function getSongs (songName) {
         if (final.status.failed) {
             resultDiv.innerHTML = `
                 <div class="box response textCenter">
-                    <h1 class="title">
+                    <h1 class="title is-size-3">
                         Error : ${final.status.code}
                     </h1>
                     <p>${final.status.message}</p>
@@ -38,7 +38,7 @@ function getSongs (songName) {
             final.content.forEach((song) => {
                 resultDiv.innerHTML += `
                     <div class="box response" id="song${i}">
-                        <h1 class="title">
+                        <h1 class="title is-size-3">
                             ${song.title}
                         </h1>
                         <p class="block">Artist: ${song.artist}</p>
