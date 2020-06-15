@@ -1,7 +1,7 @@
 // this identifier stores the parsed fetch response available globally
 let globalResponse = {};
 
-// adds a submit event listener that grabs the text submitted by user and calls geSongs() with that text argument
+// adds a submit event listener that grabs the text submitted by user and calls getSongs() with that text argument
 document.querySelector("form").addEventListener("submit", (event) => {
     event.preventDefault();
     const songName = document.querySelector("input").value.trim();
