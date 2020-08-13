@@ -76,7 +76,7 @@ let addLyrics = (id, instance) =>  {
     if (lyrics == "") {
         instance.innerHTML += `
         <div class="box lyrics">
-            <pre class="content">Some error occured in the API !...will be fixed soon 😉</pre>
+            <pre class="content error">Some error occured in the API !...will be fixed soon 😉</pre>
         </div>`
         instance.classList.add("done");   
     }

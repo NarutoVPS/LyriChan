@@ -38,6 +38,10 @@ input::placeholder {
     color: #6c757d;
 }
 
+.error {
+    color: red;
+}
+
 #version {
     color: #ffdd57;
 }
