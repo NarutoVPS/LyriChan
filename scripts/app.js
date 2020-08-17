@@ -107,3 +107,6 @@ function removeItems() {
         })
     }, 1000)
 }
+
+// api issue alret
+alert("The api LyriChan uses is facing some issues !")
